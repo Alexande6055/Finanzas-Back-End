@@ -21,7 +21,7 @@ export class FirebaseService {
     }
     private initializeFirebase() {
         if (!admin.apps.length) {
-            if (!process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
+            if (!this.credential) {
                 throw new Error('FIREBASE_SERVICE_ACCOUNT_JSON environment variable is not defined');
             }
             const serviceAccountData = JSON.parse(JSON.stringify(this.credential)) as admin.ServiceAccount;
