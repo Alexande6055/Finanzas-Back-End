@@ -11,6 +11,7 @@ import { User } from 'src/user/entities/user.entity';
     imports: [
         ConfigModule.forRoot({
             isGlobal: true,
+            envFilePath: '.env',
         }),
         TypeOrmModule.forRoot({
             type: 'postgres',
@@ -29,8 +30,8 @@ import { User } from 'src/user/entities/user.entity';
             ssl: {
                 rejectUnauthorized: false, // esto evita errores de certificado autofirmado
             },
-            synchronize: true,
-            autoLoadEntities: true,
+            synchronize: false,
+            autoLoadEntities: false,
         }),
     ],
     exports: [TypeOrmModule],
